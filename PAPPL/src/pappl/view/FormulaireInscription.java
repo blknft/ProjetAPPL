@@ -57,24 +57,23 @@ public class FormulaireInscription extends JFrame {
         this.setPreferredSize(dim);
         this.setMinimumSize(dim);
         this.setMaximumSize(dim);
-        dim = new Dimension(150,28);
+        dim = new Dimension(150, 28);
 
         main.setLayout(new BoxLayout(main, PAGE_AXIS));
 
         JPanel nom = new JPanel();
-        Font police = new Font("Calibri",Font.PLAIN,14);
+        Font police = new Font("Calibri", Font.PLAIN, 14);
         nom.setBackground(COULEUR1);
         nomTxt.setFont(police);
         nomTxt.setPreferredSize(dim);
         nomLabel.setFont(police);
         nom.add(nomLabel);
         nom.add(nomTxt);
-        nom.setMaximumSize(new Dimension(width,50));
-        nom.setPreferredSize(new Dimension(width,50));
-        nom.setMinimumSize(new Dimension(width,50));
+        nom.setMaximumSize(new Dimension(width, 40));
+        nom.setPreferredSize(new Dimension(width, 40));
+        nom.setMinimumSize(new Dimension(width, 40));
         main.add(nom);
 
-        
         JPanel prenom = new JPanel();
         prenom.setBackground(COULEUR2);
         prenomTxt.setFont(police);
@@ -82,24 +81,24 @@ public class FormulaireInscription extends JFrame {
         prenomLabel.setFont(police);
         prenom.add(prenomLabel);
         prenom.add(prenomTxt);
-        prenom.setMaximumSize(new Dimension(width,50));
-        prenom.setPreferredSize(new Dimension(width,50));
-        prenom.setMinimumSize(new Dimension(width,50));
+        prenom.setMaximumSize(new Dimension(width, 40));
+        prenom.setPreferredSize(new Dimension(width, 40));
+        prenom.setMinimumSize(new Dimension(width, 40));
         main.add(prenom);
-        
+
         JPanel sexe = new JPanel();
         sexe.setBackground(COULEUR1);
         m.setFont(police);
         f.setFont(police);
         sexeLabel.setFont(police);
-        sexe.setMaximumSize(new Dimension(width,50));
-        sexe.setPreferredSize(new Dimension(width,50));
-        sexe.setMinimumSize(new Dimension(width,50));
+        sexe.setMaximumSize(new Dimension(width, 40));
+        sexe.setPreferredSize(new Dimension(width, 40));
+        sexe.setMinimumSize(new Dimension(width, 40));
         sexe.add(sexeLabel);
         sexe.add(m);
         sexe.add(f);
         main.add(sexe);
-        
+
         JPanel date = new JPanel();
         date.setBackground(COULEUR2);
         dateNaissTxt.setFont(police);
@@ -107,10 +106,25 @@ public class FormulaireInscription extends JFrame {
         dateNaissLabel.setFont(police);
         date.add(dateNaissLabel);
         date.add(dateNaissTxt);
-        date.setMaximumSize(new Dimension(width,50));
-        date.setPreferredSize(new Dimension(width,50));
-        date.setMinimumSize(new Dimension(width,50));
+        date.setMaximumSize(new Dimension(width, 40));
+        date.setPreferredSize(new Dimension(width, 40));
+        date.setMinimumSize(new Dimension(width, 40));
         main.add(date);
+       
+        
+       
+
+        JPanel mail = new JPanel();
+        mail.setBackground(COULEUR1);
+        mailTxt.setFont(police);
+        mailTxt.setPreferredSize(dim);
+        mailLabel.setFont(police);
+        mail.add(mailLabel);
+        mail.add(mailTxt);
+        mail.setMaximumSize(new Dimension(width, 40));
+        mail.setPreferredSize(new Dimension(width, 40));
+        mail.setMinimumSize(new Dimension(width, 40));
+        main.add(mail);
 
         this.setContentPane(main);
         pack();
