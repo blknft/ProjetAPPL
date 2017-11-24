@@ -8,9 +8,11 @@ package pappl.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.text.DateFormat;
 import javax.swing.*;
-import static javax.swing.BoxLayout.PAGE_AXIS;
 import static pappl.view.MainView.SCREENSIZE;
 
 /**
@@ -48,7 +50,6 @@ public class FormulaireInscription extends JFrame {
 
     private void init() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         main = new javax.swing.JPanel();
 
         int height = SCREENSIZE.height * 2 / 3;
@@ -57,74 +58,90 @@ public class FormulaireInscription extends JFrame {
         this.setPreferredSize(dim);
         this.setMinimumSize(dim);
         this.setMaximumSize(dim);
-        dim = new Dimension(150, 28);
+        dim = new Dimension(130, 28);
 
-        main.setLayout(new BoxLayout(main, PAGE_AXIS));
-
-        JPanel nom = new JPanel();
-        Font police = new Font("Calibri", Font.PLAIN, 14);
-        nom.setBackground(COULEUR1);
-        nomTxt.setFont(police);
-        nomTxt.setPreferredSize(dim);
-        nomLabel.setFont(police);
-        nom.add(nomLabel);
-        nom.add(nomTxt);
-        nom.setMaximumSize(new Dimension(width, 40));
-        nom.setPreferredSize(new Dimension(width, 40));
-        nom.setMinimumSize(new Dimension(width, 40));
-        main.add(nom);
-
-        JPanel prenom = new JPanel();
-        prenom.setBackground(COULEUR2);
-        prenomTxt.setFont(police);
-        prenomTxt.setPreferredSize(dim);
-        prenomLabel.setFont(police);
-        prenom.add(prenomLabel);
-        prenom.add(prenomTxt);
-        prenom.setMaximumSize(new Dimension(width, 40));
-        prenom.setPreferredSize(new Dimension(width, 40));
-        prenom.setMinimumSize(new Dimension(width, 40));
-        main.add(prenom);
-
-        JPanel sexe = new JPanel();
-        sexe.setBackground(COULEUR1);
-        m.setFont(police);
-        f.setFont(police);
-        sexeLabel.setFont(police);
-        sexe.setMaximumSize(new Dimension(width, 40));
-        sexe.setPreferredSize(new Dimension(width, 40));
-        sexe.setMinimumSize(new Dimension(width, 40));
-        sexe.add(sexeLabel);
-        sexe.add(m);
-        sexe.add(f);
-        main.add(sexe);
-
-        JPanel date = new JPanel();
-        date.setBackground(COULEUR2);
-        dateNaissTxt.setFont(police);
-        dateNaissTxt.setPreferredSize(dim);
-        dateNaissLabel.setFont(police);
-        date.add(dateNaissLabel);
-        date.add(dateNaissTxt);
-        date.setMaximumSize(new Dimension(width, 40));
-        date.setPreferredSize(new Dimension(width, 40));
-        date.setMinimumSize(new Dimension(width, 40));
-        main.add(date);
-       
+        main.setLayout(new GridBagLayout());
+        main.setBackground(COULEUR1);
         
-       
+        GridBagConstraints gbc = new GridBagConstraints();
 
-        JPanel mail = new JPanel();
-        mail.setBackground(COULEUR1);
-        mailTxt.setFont(police);
+        gbc.gridx = gbc.gridy = 0;
+        gbc.gridwidth = 3;
+        gbc.gridheight = 5;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.insets = new Insets(0, 0, 10, 5);
+        main.add(nomLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(0, 0, 10, 0);
+        nomTxt.setPreferredSize(dim);
+        main.add(nomTxt, gbc);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridheight = gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.insets = new Insets(40, 0, 10, 5);
+        main.add(prenomLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(40, 0, 10, 0);
+        prenomTxt.setPreferredSize(dim);
+        main.add(prenomTxt, gbc);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridheight = gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.insets = new Insets(10, 0, 10, 0);
+        main.add(sexeLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(0, 0, 10, 0);
+        JPanel boutons = new JPanel();
+        boutons.setBackground(COULEUR1);
+        boutons.add(m, gbc);
+        boutons.add(f, gbc);
+        main.add(boutons);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridheight = gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.insets = new Insets(10, 0, 10, 5);
+        main.add(dateNaissLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(10, 0, 10, 0);
+        dateNaissTxt.setPreferredSize(dim);
+        main.add(dateNaissTxt, gbc);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridheight = gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.insets = new Insets(10, 0, 10, 5);
+        main.add(mailLabel, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.anchor = GridBagConstraints.BASELINE_LEADING;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(10, 0, 10, 0);
         mailTxt.setPreferredSize(dim);
-        mailLabel.setFont(police);
-        mail.add(mailLabel);
-        mail.add(mailTxt);
-        mail.setMaximumSize(new Dimension(width, 40));
-        mail.setPreferredSize(new Dimension(width, 40));
-        mail.setMinimumSize(new Dimension(width, 40));
-        main.add(mail);
+        main.add(mailTxt, gbc);
 
         this.setContentPane(main);
         pack();
