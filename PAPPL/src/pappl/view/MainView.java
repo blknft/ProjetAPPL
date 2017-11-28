@@ -3,6 +3,8 @@ package pappl.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -21,9 +23,8 @@ public abstract class MainView extends javax.swing.JFrame {
     protected javax.swing.JButton Alerte;
     protected javax.swing.JScrollPane scroll;
     protected javax.swing.JTable tableau;
-    
-    public final static Dimension SCREENSIZE = Toolkit.getDefaultToolkit().getScreenSize();
 
+    public final static Dimension SCREENSIZE = Toolkit.getDefaultToolkit().getScreenSize();
 
     public MainView() {
         initComponents();
@@ -43,17 +44,18 @@ public abstract class MainView extends javax.swing.JFrame {
         Back = new javax.swing.JButton();
         Home = new javax.swing.JButton();
         Alerte = new javax.swing.JButton();
+        
+        Home.addActionListener(new BoutonListenerHome());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        
-        
+
         int height = SCREENSIZE.height * 2 / 3;
         int width = SCREENSIZE.width * 2 / 3;
-        Dimension dim = new Dimension(width,height);
+        Dimension dim = new Dimension(width, height);
         this.setPreferredSize(dim);
         this.setMinimumSize(dim);
-        
-        fond.setBackground(new java.awt.Color(255,255,255));
+
+        fond.setBackground(new java.awt.Color(255, 255, 255));
         fond.setLayout(new BorderLayout());
 
         Bande.setBackground(new java.awt.Color(0, 153, 204));
@@ -76,41 +78,48 @@ public abstract class MainView extends javax.swing.JFrame {
 
         Back.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/back-2.png")); // NOI18N
         PanelBack.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 100));
-        
+
         Home.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/home-2.png")); // NOI18N
         PanelBack.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 100));
-        
+
         Alerte.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/warning.png")); // NOI18N
         PanelBack.add(Alerte, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 60, 100));
 
         javax.swing.GroupLayout fondLayout = new javax.swing.GroupLayout(fond);
         fond.setLayout(fondLayout);
         fondLayout.setHorizontalGroup(
-            fondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                fondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
         fondLayout.setVerticalGroup(
-            fondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+                fondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 568, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Bande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(fond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Bande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(Bande, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addComponent(Bande, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }
 
+    class BoutonListenerHome implements ActionListener { 
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            Home home = new Home();
+        }
+    }
+    
 }
