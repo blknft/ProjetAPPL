@@ -3,14 +3,18 @@ package pappl.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.BoxLayout;
 import static pappl.view.MainView.SCREENSIZE;
+import static test.Main.g;
 
 /**
  *
  * @author Khalil
  */
-public class Home extends javax.swing.JFrame {
+public class Home extends javax.swing.JPanel {
 
     protected javax.swing.JPanel mainPanel;
     protected javax.swing.JPanel panelDashboard;
@@ -24,11 +28,8 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         inithome();
-        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
-    
-
 
     private void inithome() {
         mainPanel = new javax.swing.JPanel();
@@ -41,20 +42,22 @@ public class Home extends javax.swing.JFrame {
         labelAlerte = new javax.swing.JLabel();
         labelDeco = new javax.swing.JLabel();
 
-        Dimension size = this.getContentPane().getSize();
-        size.setSize(size.getWidth() / 4, size.getHeight() / 4);
-        
-        Font police = new Font("Calibri",Font.PLAIN,24);
+        panelDashboard.addMouseListener(new PanelListenerDashboard());
+        panelMesure.addMouseListener(new PanelListenerMesures());
+        panelAlerte.addMouseListener(new PanelListenerAlertes());
+
+        //Dimension size = this.getContentPane().getSize();
+        //size.setSize(size.getWidth() / 4, size.getHeight() / 4);
+        Font police = new Font("Calibri", Font.PLAIN, 24);
 
         int height = SCREENSIZE.height * 2 / 3;
         int width = SCREENSIZE.width * 2 / 3;
         this.setPreferredSize(new Dimension(width, height));
         this.setMinimumSize(new Dimension(width, height));
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         //FOND
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-        mainPanel.setSize(this.getContentPane().getSize());
 
         //GESTION DU PANEL DASHBOARD 
         panelDashboard.setBackground(new java.awt.Color(0, 153, 204));
@@ -123,8 +126,8 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(panelDeco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         ));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,8 +137,79 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        //pack();
+    }
 
+    class PanelListenerDashboard implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            g.show("Dashboard");
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    class PanelListenerMesures implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            g.show("Mesures");
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    class PanelListenerAlertes implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            g.show("Alertes");
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
 }

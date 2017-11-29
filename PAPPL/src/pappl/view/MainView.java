@@ -5,12 +5,13 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static test.Main.g;
 
 /**
  *
  * @author Khalil
  */
-public abstract class MainView extends javax.swing.JFrame {
+public abstract class MainView extends javax.swing.JPanel {
 
     protected javax.swing.JButton Add;
     protected javax.swing.JButton Back;
@@ -47,7 +48,7 @@ public abstract class MainView extends javax.swing.JFrame {
         
         Home.addActionListener(new BoutonListenerHome());
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         int height = SCREENSIZE.height * 2 / 3;
         int width = SCREENSIZE.width * 2 / 3;
@@ -84,6 +85,7 @@ public abstract class MainView extends javax.swing.JFrame {
 
         Alerte.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/warning.png")); // NOI18N
         PanelBack.add(Alerte, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 60, 100));
+        
 
         javax.swing.GroupLayout fondLayout = new javax.swing.GroupLayout(fond);
         fond.setLayout(fondLayout);
@@ -96,8 +98,8 @@ public abstract class MainView extends javax.swing.JFrame {
                         .addGap(0, 568, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(Bande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -112,14 +114,16 @@ public abstract class MainView extends javax.swing.JFrame {
                                 .addComponent(fond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        //pack();
     }
 
     class BoutonListenerHome implements ActionListener { 
         @Override
         public void actionPerformed(ActionEvent arg0) {
-            Home home = new Home();
+            g.show("Home");
         }
     }
+    
+    
     
 }

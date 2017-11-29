@@ -2,6 +2,9 @@
 package pappl.view;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import static test.Main.g;
 
 /**
  * Classe des fenêtres de mesure
@@ -14,7 +17,7 @@ public class MesuresView extends MainView {
     public MesuresView() {
         super();
         init();
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
     
@@ -24,6 +27,8 @@ public class MesuresView extends MainView {
         
         tableau = new javax.swing.JTable();
         scroll = new javax.swing.JScrollPane(tableau);
+        
+        Back.addActionListener(new BoutonListenerBack());
         
         tableau.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,14 +62,18 @@ public class MesuresView extends MainView {
         );
         
         
-        pack();
+        //pack();
  
         
         
         
     }
     
-    
-    
-
+        
+class BoutonListenerBack implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            g.show("Home");
+        }
+    }
 }

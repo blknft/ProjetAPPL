@@ -6,6 +6,9 @@
 package pappl.view;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import static test.Main.g;
 
 /**
  *
@@ -18,15 +21,20 @@ public class DashboardView extends MainView {
     public DashboardView() {
         super();
         init();
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
     
     private void init() {
         PanelBack.setVisible(true);
         PanelAdd.setVisible(true);
-        
-       
-        
+        Back.addActionListener(new BoutonListenerBack()); 
+    }
+    
+    class BoutonListenerBack implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            g.show("Home");
+        }
     }
 }
