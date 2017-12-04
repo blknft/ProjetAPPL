@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 import static test.Main.g;
 
 /**
@@ -24,6 +25,7 @@ public abstract class MainView extends javax.swing.JPanel {
     protected javax.swing.JButton Alerte;
     protected javax.swing.JScrollPane scroll;
     protected javax.swing.JTable tableau;
+    protected JLabel titre;
 
     public final static Dimension SCREENSIZE = Toolkit.getDefaultToolkit().getScreenSize();
 

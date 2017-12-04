@@ -1,12 +1,14 @@
 package pappl.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BoxLayout;
+import static pappl.view.FormulaireInscription.COULEUR1;
+import static pappl.view.FormulaireInscription.COULEUR2;
 import static pappl.view.MainView.SCREENSIZE;
 import static test.Main.g;
 
@@ -41,10 +43,12 @@ public class Home extends javax.swing.JPanel {
         labelMesure = new javax.swing.JLabel();
         labelAlerte = new javax.swing.JLabel();
         labelDeco = new javax.swing.JLabel();
-
+        
+        //Gestion Listeners
         panelDashboard.addMouseListener(new PanelListenerDashboard());
         panelMesure.addMouseListener(new PanelListenerMesures());
         panelAlerte.addMouseListener(new PanelListenerAlertes());
+        panelDeco.addMouseListener(new PanelListenerDeco());
 
         //Dimension size = this.getContentPane().getSize();
         //size.setSize(size.getWidth() / 4, size.getHeight() / 4);
@@ -60,7 +64,7 @@ public class Home extends javax.swing.JPanel {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 
         //GESTION DU PANEL DASHBOARD 
-        panelDashboard.setBackground(new java.awt.Color(0, 153, 204));
+        panelDashboard.setBackground(COULEUR1);
         panelDashboard.setPreferredSize(new Dimension(width / 4, height / 4));
         panelDashboard.setLayout(new BorderLayout());
 
@@ -72,7 +76,7 @@ public class Home extends javax.swing.JPanel {
         mainPanel.add(panelDashboard);
 
         //GESTION DU PANEL MESURE
-        panelMesure.setBackground(new java.awt.Color(0, 130, 204));
+        panelMesure.setBackground(COULEUR2);
         panelMesure.setPreferredSize(new Dimension(width / 4, height / 4));
         panelMesure.setLayout(new BorderLayout());
 
@@ -84,7 +88,7 @@ public class Home extends javax.swing.JPanel {
         mainPanel.add(panelMesure);
 
         //GESTION DU PANEL ALERTE
-        panelAlerte.setBackground(new java.awt.Color(0, 153, 204));
+        panelAlerte.setBackground(COULEUR1);
         panelAlerte.setPreferredSize(new Dimension(width / 4, height / 4));
         panelAlerte.setLayout(new BorderLayout());
 
@@ -96,7 +100,7 @@ public class Home extends javax.swing.JPanel {
         mainPanel.add(panelAlerte);
 
         //GESTION DU PANEL DECO
-        panelDeco.setBackground(new java.awt.Color(0, 130, 204));
+        panelDeco.setBackground(COULEUR2);
         panelDeco.setPreferredSize(new Dimension(width / 4, height / 4));
         panelDeco.setLayout(new BorderLayout());
 
@@ -157,10 +161,12 @@ public class Home extends javax.swing.JPanel {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            panelDashboard.setBackground(new Color(0, 130, 180));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            panelDashboard.setBackground(COULEUR1);
         }
     }
 
@@ -181,10 +187,12 @@ public class Home extends javax.swing.JPanel {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            panelMesure.setBackground(new Color(0, 130, 180));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            panelMesure.setBackground(COULEUR2);
         }
     }
 
@@ -205,11 +213,39 @@ public class Home extends javax.swing.JPanel {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            panelAlerte.setBackground(new Color(0, 130, 180));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            panelAlerte.setBackground(COULEUR1);
         }
     }
 
+    class PanelListenerDeco implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            panelDeco.setBackground(new Color(0, 130, 180));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            panelDeco.setBackground(COULEUR2);
+        }
+    }
+    
 }
