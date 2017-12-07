@@ -23,19 +23,16 @@ public class GUI extends JFrame {
     private DashboardView dashboard;
     private AjoutMesure ajout;
 
-    
-
     public GUI() {
         super();
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        
+
         //Initialisation panels
         home = new Home();
         mesures = new MesuresView();
         dashboard = new DashboardView();
         ajout = new AjoutMesure();
-        
 
         //Dimensions de la fenêtre
         int height = SCREENSIZE.height * 2 / 3;
@@ -56,21 +53,27 @@ public class GUI extends JFrame {
         contentPanel.add(dashboard, "Dashboard");
         contentPanel.add(ajout, "AjouterMesure");
         this.setContentPane(contentPanel);
-        cardlayout.show(contentPanel, "Dashboard");
+
+        cardlayout.show(contentPanel, "AjouterMesure");
     }
-    
+
     public final void addNew(String name) {
         switch (name) {
             case "Mesures":
                 contentPanel.remove(mesures);
                 this.mesures = new MesuresView();
                 contentPanel.add(mesures, "Mesures");
-            break;
+                break;
             case "Dashboard":
                 contentPanel.remove(dashboard);
                 this.dashboard = new DashboardView();
                 contentPanel.add(dashboard, "Dashboard");
-            break; 
+                break;
+            case "AjouterMesure":
+                contentPanel.remove(ajout);
+                this.ajout = new AjoutMesure();
+                contentPanel.add(ajout, "AjouterMesure");
+                break;
         }
     }
 
@@ -81,8 +84,7 @@ public class GUI extends JFrame {
     public void showprecedent() {
         if (this.precedent instanceof DashboardView) {
             this.show("Dashboard");
-        }
-        else {
+        } else {
             if (this.precedent instanceof MesuresView) {
                 this.show("Mesures");
             }
@@ -112,9 +114,5 @@ public class GUI extends JFrame {
     public AjoutMesure getAjout() {
         return ajout;
     }
-
-    
-    
-    
 
 }
