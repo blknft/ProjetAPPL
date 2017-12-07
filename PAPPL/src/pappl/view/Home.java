@@ -70,7 +70,7 @@ public class Home extends javax.swing.JPanel {
 
         labelDashboard.setText("Dashboard");
         labelDashboard.setFont(police);
-        labelDashboard.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/dashboard.png"));
+        labelDashboard.setIcon(new javax.swing.ImageIcon("icones/dashboard.png"));
         panelDashboard.add(labelDashboard, BorderLayout.CENTER);
 
         mainPanel.add(panelDashboard);
@@ -82,7 +82,7 @@ public class Home extends javax.swing.JPanel {
 
         labelMesure.setText("Mesures");
         labelMesure.setFont(police);
-        labelMesure.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/graph.png"));
+        labelMesure.setIcon(new javax.swing.ImageIcon("icones/graph.png"));
         panelMesure.add(labelMesure, BorderLayout.CENTER);
 
         mainPanel.add(panelMesure);
@@ -94,7 +94,7 @@ public class Home extends javax.swing.JPanel {
 
         labelAlerte.setText("Alertes");
         labelAlerte.setFont(police);
-        labelAlerte.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/warning.png"));
+        labelAlerte.setIcon(new javax.swing.ImageIcon("icones/warning.png"));
         panelAlerte.add(labelAlerte, BorderLayout.CENTER);
 
         mainPanel.add(panelAlerte);
@@ -106,7 +106,7 @@ public class Home extends javax.swing.JPanel {
 
         labelDeco.setText("Déconnexion");
         labelDeco.setFont(police);
-        labelDeco.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/turn-off.png"));
+        labelDeco.setIcon(new javax.swing.ImageIcon("icones/turn-off.png"));
         panelDeco.add(labelDeco, BorderLayout.CENTER);
 
         mainPanel.add(panelDeco);

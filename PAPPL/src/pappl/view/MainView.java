@@ -73,19 +73,19 @@ public abstract class MainView extends javax.swing.JPanel {
         Bande.add(PanelBack, BorderLayout.WEST);
         Bande.add(PanelAdd, BorderLayout.EAST);
 
-        Delete.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/substract.png")); // NOI18N
+        Delete.setIcon(new javax.swing.ImageIcon("icones/substract.png")); // NOI18N
         PanelAdd.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 100));
 
-        Add.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/add.png")); // NOI18N
+        Add.setIcon(new javax.swing.ImageIcon("icones/add.png")); // NOI18N
         PanelAdd.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 100));
 
-        Back.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/back-2.png")); // NOI18N
+        Back.setIcon(new javax.swing.ImageIcon("icones/back-2.png")); // NOI18N
         PanelBack.add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 100));
 
-        Home.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/home-2.png")); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon("icones/home-2.png")); // NOI18N
         PanelBack.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 60, 100));
 
-        Alerte.setIcon(new javax.swing.ImageIcon("/Users/Khalil/Desktop/ECN/INFORMATIQUE/PAPPL/DÉVELOPPEMENT/PAPPL/icones/warning.png")); // NOI18N
+        Alerte.setIcon(new javax.swing.ImageIcon("icones/warning.png")); // NOI18N
         PanelBack.add(Alerte, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 60, 100));
         
 
