@@ -82,4 +82,12 @@ public class MesuresView extends MainView {
         }
 
     }
+    
+    class BoutonListenerAlertes implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            g.show("Alertes");
+            g.getAlertes().setPrecedent(new MesuresView());
+        }
+    }
 }

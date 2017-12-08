@@ -121,6 +121,10 @@ public class AjoutMesure extends MainView {
     public void setPrecedent(MesuresView precedent) {
         this.precedent = precedent;
     }
+    
+    public void setPrecedent(AlertesView precedent) {
+        this.precedent = precedent;
+    }
 
     public void setTxtUnite(String s) {
         this.unite.setText(s);
@@ -134,49 +138,55 @@ public class AjoutMesure extends MainView {
                 g.addNew("Mesures");
                 g.show("Mesures");
             } else {
-                g.addNew("Dashboard");
-                g.show("Dashboard");
+                if (precedent instanceof DashboardView) {
+                    g.addNew("Dashboard");
+                    g.show("Dashboard");
+                } else {
+                    g.addNew("Alertes");
+                    g.show("Alertes");
+                }
             }
         }
     }
 
-    class ComboListener implements ItemListener {
 
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            String choix = (String) e.getItem();
-            switch (choix) {
-                case "Glycémie":
-                    AjoutMesure.this.setTxtUnite("mg/dl");
-                    AjoutMesure.this.unite.setVisible(true);
-                    break;
-                case "Fréquence Cardiaque":
-                    AjoutMesure.this.setTxtUnite("BPM");
-                    AjoutMesure.this.unite.setVisible(true);
-                    break;
-                case "":
-                    AjoutMesure.this.unite.setVisible(false);
-                    break;
-                case "Tension":
-                    AjoutMesure.this.setTxtUnite("mmHg");
-                    AjoutMesure.this.unite.setVisible(true);
-                    break;
-            }
+class ComboListener implements ItemListener {
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        String choix = (String) e.getItem();
+        switch (choix) {
+            case "Glycémie":
+                AjoutMesure.this.setTxtUnite("mg/dl");
+                AjoutMesure.this.unite.setVisible(true);
+                break;
+            case "Fréquence Cardiaque":
+                AjoutMesure.this.setTxtUnite("BPM");
+                AjoutMesure.this.unite.setVisible(true);
+                break;
+            case "":
+                AjoutMesure.this.unite.setVisible(false);
+                break;
+            case "Tension":
+                AjoutMesure.this.setTxtUnite("mmHg");
+                AjoutMesure.this.unite.setVisible(true);
+                break;
         }
+    }
+
+}
+
+class ConfirmationListener implements ActionListener {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //Stocker cette nouvelle donnée en attente de confirmation du médecin
+        ConfirmationPop confirmation = new ConfirmationPop();
+        confirmation.setLocationRelativeTo(null);
+        confirmation.setVisible(true);
 
     }
 
-    class ConfirmationListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            //Stocker cette nouvelle donnée en attente de confirmation du médecin
-            ConfirmationPop confirmation = new ConfirmationPop();
-            confirmation.setLocationRelativeTo(null);
-            confirmation.setVisible(true);
-            
-        }
-
-    }
+}
 
 }

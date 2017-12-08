@@ -22,6 +22,7 @@ public class GUI extends JFrame {
     private MesuresView mesures;
     private DashboardView dashboard;
     private AjoutMesure ajout;
+    private AlertesView alertes;
 
     public GUI() {
         super();
@@ -33,6 +34,7 @@ public class GUI extends JFrame {
         mesures = new MesuresView();
         dashboard = new DashboardView();
         ajout = new AjoutMesure();
+        alertes = new AlertesView();
 
         //Dimensions de la fenêtre
         int height = SCREENSIZE.height * 2 / 3;
@@ -52,6 +54,7 @@ public class GUI extends JFrame {
         contentPanel.add(mesures, "Mesures");
         contentPanel.add(dashboard, "Dashboard");
         contentPanel.add(ajout, "AjouterMesure");
+        contentPanel.add(alertes, "Alertes");
         this.setContentPane(contentPanel);
 
         cardlayout.show(contentPanel, "Home");
@@ -73,6 +76,11 @@ public class GUI extends JFrame {
                 contentPanel.remove(ajout);
                 this.ajout = new AjoutMesure();
                 contentPanel.add(ajout, "AjouterMesure");
+                break;
+            case "Alertes":
+                contentPanel.remove(alertes);
+                this.alertes = new AlertesView();
+                contentPanel.add(alertes, "Alertes");
                 break;
         }
     }
@@ -113,6 +121,10 @@ public class GUI extends JFrame {
 
     public AjoutMesure getAjout() {
         return ajout;
+    }
+    
+    public AlertesView getAlertes() {
+        return alertes;
     }
 
 }
