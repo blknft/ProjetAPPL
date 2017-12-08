@@ -31,7 +31,6 @@ public class ConfirmationPop extends JFrame {
 
     public void init() {
         this.setUndecorated(true);
-        this.setLocationRelativeTo(g);
         this.getContentPane().setBackground(COULEUR1);
         this.getContentPane().setLayout(new GridBagLayout());
 

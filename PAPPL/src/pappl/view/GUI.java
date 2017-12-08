@@ -54,7 +54,7 @@ public class GUI extends JFrame {
         contentPanel.add(ajout, "AjouterMesure");
         this.setContentPane(contentPanel);
 
-        cardlayout.show(contentPanel, "AjouterMesure");
+        cardlayout.show(contentPanel, "Home");
     }
 
     public final void addNew(String name) {

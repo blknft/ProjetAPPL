@@ -150,7 +150,7 @@ public class AjoutMesure extends MainView {
                     AjoutMesure.this.setTxtUnite("mg/dl");
                     AjoutMesure.this.unite.setVisible(true);
                     break;
-                case "BPM":
+                case "Fréquence Cardiaque":
                     AjoutMesure.this.setTxtUnite("BPM");
                     AjoutMesure.this.unite.setVisible(true);
                     break;
@@ -172,6 +172,7 @@ public class AjoutMesure extends MainView {
         public void actionPerformed(ActionEvent e) {
             //Stocker cette nouvelle donnée en attente de confirmation du médecin
             ConfirmationPop confirmation = new ConfirmationPop();
+            confirmation.setLocationRelativeTo(null);
             confirmation.setVisible(true);
             
         }
