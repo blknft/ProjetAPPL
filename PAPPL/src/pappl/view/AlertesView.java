@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import static test.Main.g;
 
 /**
@@ -18,7 +19,7 @@ import static test.Main.g;
  */
 public class AlertesView extends MainView {
 
-    protected MainView precedent;
+    protected JPanel precedent;
 
     public AlertesView() {
         super();
@@ -44,21 +45,25 @@ public class AlertesView extends MainView {
     public void setPrecedent(MesuresView precedent) {
         this.precedent = precedent;
     }
+    
+        public void setPrecedent(Home precedent) {
+        this.precedent = precedent;
+    }
 
     class BoutonListenerBack implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             if (precedent instanceof MesuresView) {
-                g.addNew("Mesures");
                 g.show("Mesures");
             } else {
                 if (precedent instanceof DashboardView) {
-                g.addNew("Dashboard");
                 g.show("Dashboard");}
                 else {
-                    g.addNew("Alertes");
-                    g.show("Alertes");
+
+                        g.show("Home");
+                      
+                    
                 }
             }
         }

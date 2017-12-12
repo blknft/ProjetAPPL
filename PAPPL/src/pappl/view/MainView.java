@@ -49,7 +49,7 @@ public abstract class MainView extends javax.swing.JPanel {
         Alerte = new javax.swing.JButton();
         
         Home.addActionListener(new BoutonListenerHome());
-        Alerte.addActionListener(new BoutonListenerAlertes());
+        
 
         //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,16 +126,5 @@ public abstract class MainView extends javax.swing.JPanel {
             g.show("Home");
         }
     }
-    
-    class BoutonListenerAlertes implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            g.show("Alertes");
-        }
-        
-    }
-    
-    
-    
+  
 }
