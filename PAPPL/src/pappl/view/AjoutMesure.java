@@ -184,8 +184,9 @@ class ConfirmationListener implements ActionListener {
         //Stocker cette nouvelle donnée en attente de confirmation du médecin
         ConfirmationPop confirmation = new ConfirmationPop();
         confirmation.setLocationRelativeTo(null);
+        confirmation.setAlwaysOnTop(true);
         confirmation.setVisible(true);
-
+        g.setEnabled(false);
     }
 
 }
