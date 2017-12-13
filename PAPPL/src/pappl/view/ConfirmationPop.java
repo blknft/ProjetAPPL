@@ -61,6 +61,7 @@ public class ConfirmationPop extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            g.setEnabled(true);
             g.addNew("AjouterMesure");
             g.show("AjouterMesure");
             ConfirmationPop.this.dispose();

@@ -62,7 +62,7 @@ public class AjoutMesure extends MainView {
         valeurTxt.setFont(new Font("Calibri", Font.PLAIN, 20));
         unite.setFont(new Font("Calibri", Font.PLAIN, 20));
         //choixMesure.setFont(new Font("Calibri", Font.PLAIN, 20));
-        String[] tab = {"", "Glycémie", "Tension", "Fréquence Cardiaque"};
+        String[] tab = {"", "Glycémie", "Tension", "Fréquence Cardiaque", "Température"};
         choixMesure = new JComboBox(tab);
         choixMesure.setPreferredSize(new Dimension(200, 30));
         choixMesure.addItemListener(new ComboListener());
@@ -135,14 +135,12 @@ public class AjoutMesure extends MainView {
         @Override
         public void actionPerformed(ActionEvent arg0) {
             if (precedent instanceof MesuresView) {
-                g.addNew("Mesures");
+                //Update
                 g.show("Mesures");
             } else {
                 if (precedent instanceof DashboardView) {
-                    g.addNew("Dashboard");
                     g.show("Dashboard");
                 } else {
-                    g.addNew("Alertes");
                     g.show("Alertes");
                 }
             }
@@ -171,6 +169,9 @@ class ComboListener implements ItemListener {
                 AjoutMesure.this.setTxtUnite("mmHg");
                 AjoutMesure.this.unite.setVisible(true);
                 break;
+            case "Température":
+                AjoutMesure.this.setTxtUnite("°C");
+                AjoutMesure.this.unite.setVisible(true);
         }
     }
 
@@ -183,8 +184,9 @@ class ConfirmationListener implements ActionListener {
         //Stocker cette nouvelle donnée en attente de confirmation du médecin
         ConfirmationPop confirmation = new ConfirmationPop();
         confirmation.setLocationRelativeTo(null);
+        confirmation.setAlwaysOnTop(true);
         confirmation.setVisible(true);
-
+        g.setEnabled(false);
     }
 
 }

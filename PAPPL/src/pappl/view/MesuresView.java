@@ -33,6 +33,7 @@ public class MesuresView extends MainView {
 
         Back.addActionListener(new BoutonListenerBack());
         Add.addActionListener(new BoutonListenerAdd());
+        Alerte.addActionListener(new BoutonListenerAlertes());
 
         tableau.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
@@ -87,7 +88,7 @@ public class MesuresView extends MainView {
         @Override
         public void actionPerformed(ActionEvent e) {
             g.show("Alertes");
-            g.getAlertes().setPrecedent(new MesuresView());
+            g.getAlertes().setPrecedent(MesuresView.this);
         }
     }
 }

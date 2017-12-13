@@ -201,6 +201,7 @@ public class Home extends javax.swing.JPanel {
         @Override
         public void mouseClicked(MouseEvent e) {
             g.show("Alertes");
+            g.getAlertes().setPrecedent(Home.this);
         }
 
         @Override
