@@ -8,47 +8,23 @@ package pappl.entitiesmongo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import org.eclipse.persistence.nosql.annotations.DataFormatType;
-import org.eclipse.persistence.nosql.annotations.Field;
-import org.eclipse.persistence.nosql.annotations.NoSql;
 /**
  *
  * @author oualidcheriaf
  */
-@Entity
-@NoSql(dataFormat=DataFormatType.MAPPED,dataType="pat")
-public class jeuDeDonnees implements Serializable {
+public class Patient implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Field(name="_id")
     private Integer id;
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Field(name="ID")
-    private Integer ID;
-    @Basic 
     private String Prenom;
-    @Basic
     private String Nom;
-    @Basic
     private String Adresse;
-    @ElementCollection
-    private List<Temperature> Temperature = new ArrayList<Temperature>();
-    @ElementCollection
-    private List<Tension> Tension = new ArrayList<Tension>();
-    @ElementCollection
-    private List<Glycemie> Glycemie = new ArrayList<Glycemie>();
-    @Basic
+    private List<Temperature> Temperature = new ArrayList<>();
+    private List<Tension> Tension = new ArrayList<>();
+    private List<Glycemie> Glycemie = new ArrayList<>();
     private String date;
-@ElementCollection
-    private List<BPM> BPM = new ArrayList<BPM>();
+    private List<BPM> BPM = new ArrayList<>();
 
     public List<BPM> getBPM() {
         return BPM;
@@ -130,10 +106,10 @@ public class jeuDeDonnees implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof jeuDeDonnees)) {
+        if (!(object instanceof Patient)) {
             return false;
         }
-        jeuDeDonnees other = (jeuDeDonnees) object;
+        Patient other = (Patient) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -145,12 +121,5 @@ public class jeuDeDonnees implements Serializable {
         return "pappl.entities.PatientMongo[ id=" + id + " ]";
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
-    }
     
 }

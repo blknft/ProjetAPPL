@@ -6,29 +6,16 @@
 package pappl.entitiesmongo;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import org.eclipse.persistence.nosql.annotations.DataFormatType;
-import org.eclipse.persistence.nosql.annotations.Field;
-import org.eclipse.persistence.nosql.annotations.NoSql;
 
 /**
  *
  * @author oualidcheriaf
  */
-@Entity
-@Embeddable
-@NoSql(dataFormat=DataFormatType.MAPPED)
+
 public class BPM implements Serializable {
 
-    @Basic 
-    @Id
-    @Field(name="date")
-    String date;
-    @Basic
-    float valeur;
+    private String date;
+    private int valeur;
 
     public String getDate() {
         return date;
@@ -38,11 +25,11 @@ public class BPM implements Serializable {
         this.date = date;
     }
 
-    public float getValeur() {
+    public int getValeur() {
         return valeur;
     }
 
-    public void setValeur(float valeur) {
+    public void setValeur(int valeur) {
         this.valeur = valeur;
     }
     
