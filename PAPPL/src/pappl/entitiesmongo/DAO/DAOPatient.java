@@ -1,8 +1,8 @@
-package pappl.DAO;
+package pappl.entitiesmongo.DAO;
 
 import com.mongodb.client.FindIterable;
 import org.bson.Document;
-import pappl.entitiesmongo.*;
+import pappl.entitiesmongo.model.*;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class DAOPatient extends DAOMongo {
 
     public void updatePatient(Patient pat) {
         //this.getMongoCollection().findOneAndReplace(pat.getId(),this.constructDocument(pat));
-        //FIXME : Voir comment update les mesures.
+        // TODO : Voir comment update a Patient Document
     }
 
     protected Patient constructObject(Document data) {
@@ -95,7 +95,27 @@ public class DAOPatient extends DAOMongo {
 
     protected Document constructDocument(Patient pat) {
         Document doc;
-        doc = new Document().append("Nom", pat.getNom()).append("Prenom", pat.getPrenom()).append("Adresse", pat.getAdresse()).append("ID", pat.getId()).append("Temperature", pat.getTemperature()).append("Glycemie", pat.getGlycemie()).append("BPM", pat.getBPM()).append("Tension", pat.getTension());
+        ArrayList<Document> temperature = new ArrayList<>();
+        for (Temperature t : pat.getTemperature()) {
+            Document temp = new Document().append("date", t.getDate()).append("valeur", t.getValeur());
+            temperature.add(temp);
+        }
+        ArrayList<Document> glycemie = new ArrayList<>();
+        for (Glycemie g : pat.getGlycemie()) {
+            Document glyc = new Document().append("date", g.getDate()).append("valeur", g.getValeur());
+            glycemie.add(glyc);
+        }
+        ArrayList<Document> tension = new ArrayList<>();
+        for (Tension t : pat.getTension()) {
+            Document tens = new Document().append("date", t.getDate()).append("valeur", t.getValeur());
+            tension.add(tens);
+        }
+        ArrayList<Document> bpm = new ArrayList<>();
+        for (BPM b : pat.getBPM()) {
+            Document bp = new Document().append("date", b.getDate()).append("valeur", b.getValeur());
+            bpm.add(bp);
+        }
+        doc = new Document().append("Nom", pat.getNom()).append("Prenom", pat.getPrenom()).append("Adresse", pat.getAdresse()).append("ID", pat.getId()).append("Temperature", temperature).append("Glycemie", glycemie).append("BPM", bpm).append("Tension", tension);
         return doc;
     }
 }

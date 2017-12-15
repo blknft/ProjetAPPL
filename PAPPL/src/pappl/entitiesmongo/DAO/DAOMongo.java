@@ -1,4 +1,4 @@
-package pappl.DAO;
+package pappl.entitiesmongo.DAO;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -8,8 +8,8 @@ import org.bson.Document;
 
 public abstract class DAOMongo {
     private static final String MONGO_URL = "mongodb://localhost:27017";
-    private static final String DB_NAME = "test";
-    private static final String COLLECTION_NAME = "col";
+    private static final String DB_NAME = "testPat";
+    private static final String COLLECTION_NAME = "MyCol";
     private MongoClient mongoClient;
     private MongoClientURI mongoAdress;
     private MongoDatabase mongoDb;

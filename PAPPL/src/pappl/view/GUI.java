@@ -5,8 +5,9 @@
  */
 package pappl.view;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+
 import static pappl.view.MainView.SCREENSIZE;
 
 /**
@@ -86,7 +87,7 @@ public class GUI extends JFrame {
     }
 
     public void show(String name) {
-        //Update !!!
+        //TODO: Update !!!
         cardlayout.show(contentPanel, name);
     }
 

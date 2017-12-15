@@ -1,9 +1,10 @@
 package pappl.view;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+
 import static test.Main.g;
 
 /**
@@ -18,6 +19,14 @@ public class MesuresView extends MainView {
     public MesuresView() {
         super();
         init();
+    }
+
+    public JTable getTableau() {
+        return tableau;
+    }
+
+    public void setTableau(JTable tableau) {
+        this.tableau = tableau;
     }
 
     private void init() {
@@ -37,13 +46,13 @@ public class MesuresView extends MainView {
 
         tableau.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null},
-                    {null, null, null, null}
+                        {null, null},
+                        {null, null},
+                        {null, null},
+                        {null, null}
                 },
                 new String[]{
-                    "Mesure", "Valeur", "Date", "Source"
+                        "Mesure", "Valeur"
                 }
         ));
 

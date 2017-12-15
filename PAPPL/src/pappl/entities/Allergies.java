@@ -5,21 +5,11 @@
  */
 package pappl.entities;
 
-import java.io.Serializable;
-import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -29,10 +19,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "allergies")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Allergies.findAll", query = "SELECT a FROM Allergies a")
-    , @NamedQuery(name = "Allergies.findByIdAllergies", query = "SELECT a FROM Allergies a WHERE a.idAllergies = :idAllergies")
-    , @NamedQuery(name = "Allergies.findByNomAllergies", query = "SELECT a FROM Allergies a WHERE a.nomAllergies = :nomAllergies")
-    , @NamedQuery(name = "Allergies.findByNiveau", query = "SELECT a FROM Allergies a WHERE a.niveau = :niveau")})
+        @NamedQuery(name = "Allergies.findAll", query = "SELECT a FROM Allergies a")
+        , @NamedQuery(name = "Allergies.findByIdAllergies", query = "SELECT a FROM Allergies a WHERE a.idAllergies = :idAllergies")
+        , @NamedQuery(name = "Allergies.findByNomAllergies", query = "SELECT a FROM Allergies a WHERE a.nomAllergies = :nomAllergies")
+        , @NamedQuery(name = "Allergies.findByNiveau", query = "SELECT a FROM Allergies a WHERE a.niveau = :niveau")})
 public class Allergies implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,8 +37,8 @@ public class Allergies implements Serializable {
     @Column(name = "niveau")
     private int niveau;
     @JoinTable(name = "a", joinColumns = {
-        @JoinColumn(name = "id_allergies", referencedColumnName = "id_allergies")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_patients", referencedColumnName = "id_patients")})
+            @JoinColumn(name = "id_allergies", referencedColumnName = "id_allergies")}, inverseJoinColumns = {
+            @JoinColumn(name = "id_patients", referencedColumnName = "id_patients")})
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Patients> patientsList;
 
@@ -122,5 +112,5 @@ public class Allergies implements Serializable {
     public String toString() {
         return "pappl.entities.Allergies[ idAllergies=" + idAllergies + " ]";
     }
-    
+
 }
