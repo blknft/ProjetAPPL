@@ -1,7 +1,6 @@
 package pappl.view;
 
 import pappl.entitiesmongo.DAO.DAOPatient;
-import pappl.entitiesmongo.model.Mesurable;
 import pappl.entitiesmongo.model.Patient;
 
 import javax.swing.*;
@@ -56,8 +55,7 @@ public class MesuresView extends MainView {
         tableau.setModel(model);
         //TODO : Supprimer ça
         Patient pat = new DAOPatient().find(1);
-        DAOPatient.toRow((java.util.List<Mesurable>) pat.getTemperature(), model);
-
+        DAOPatient.toRow(pat.getTempMes(), model);
         tableau.getTableHeader().setFont(new Font("Calibri", Font.PLAIN, 20));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(fond);

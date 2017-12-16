@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class BPM implements Serializable, Mesurable {
+public class BPM extends Mesurable implements Serializable {
 
     private String date;
     private int valeur;

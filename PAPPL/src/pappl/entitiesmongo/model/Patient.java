@@ -117,6 +117,13 @@ public class Patient implements Serializable {
         return true;
     }
 
+    public List<Mesurable> getTempMes() {
+        ArrayList<Mesurable> res = new ArrayList<>();
+        for (Temperature t : this.Temperature) {
+            res.add((Mesurable) t);
+        }
+        return res;
+    }
     @Override
     public String toString() {
         return "pappl.entities.PatientMongo[ id=" + id + " ]";

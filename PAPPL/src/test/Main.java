@@ -3,7 +3,6 @@ package test;
 import pappl.entitiesmongo.DAO.DAOPatient;
 import pappl.entitiesmongo.model.*;
 import pappl.view.GUI;
-import pappl.view.MesuresView;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.ArrayList;
@@ -16,12 +15,12 @@ public class Main {
     public static final String MONGO_PROVIDER = "PAPPLPU";
 
     public static void main(String[] args) {
-        MesuresView mv;
+        g.show("Mesures");
+        g.setVisible(true);
 
         DAOPatient dao = new DAOPatient();
         Patient pat = dao.find(1);
-        g.setVisible(true);
-        //mv.getTableau().setModel(new DefaultTableModel(dao.toRow((ArrayList)pat.getTemperature()),new Object[]{"date", "valeur"}));
+
 
     }
 

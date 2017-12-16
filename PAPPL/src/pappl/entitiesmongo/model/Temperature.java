@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Temperature implements Serializable, Mesurable {
+public class Temperature extends Mesurable implements Serializable {
 
     private String date;
     private Double valeur;

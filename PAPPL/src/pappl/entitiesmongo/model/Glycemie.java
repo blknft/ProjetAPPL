@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Glycemie implements Serializable, Mesurable {
+public class Glycemie extends Mesurable implements Serializable {
     private String date;
     private Double valeur;
 

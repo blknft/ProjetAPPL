@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Tension implements Serializable, Mesurable {
+public class Tension extends Mesurable implements Serializable {
 
     private String date;
     private Double valeur;
