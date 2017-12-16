@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Tension implements Serializable {
+public class Tension implements Serializable, Mesurable {
 
     private String date;
     private Double valeur;
@@ -31,6 +31,11 @@ public class Tension implements Serializable {
     public void setValeur(Double valeur) {
         this.valeur = valeur;
     }
+
+    public double getValeurDouble() {
+        return (double) valeur;
+    }
+
 
 
     @Override

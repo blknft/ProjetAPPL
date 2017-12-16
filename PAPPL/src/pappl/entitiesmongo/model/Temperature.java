@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Temperature implements Serializable {
+public class Temperature implements Serializable, Mesurable {
 
     private String date;
     private Double valeur;
@@ -32,6 +32,9 @@ public class Temperature implements Serializable {
         this.valeur = valeur;
     }
 
+    public double getValeurDouble() {
+        return (double) valeur;
+    }
 
     @Override
     public boolean equals(Object object) {

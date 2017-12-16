@@ -17,13 +17,11 @@ public class Main {
 
     public static void main(String[] args) {
         MesuresView mv;
-        mv = new MesuresView();
-        DAOPatient dao = new DAOPatient();
 
-        ArrayList<Patient> pat = dao.findAll();
-        setupMongoDb(dao);
-        ArrayList<Patient> pat2 = dao.findAll();
-        System.out.println(pat);
+        DAOPatient dao = new DAOPatient();
+        Patient pat = dao.find(1);
+        g.setVisible(true);
+        //mv.getTableau().setModel(new DefaultTableModel(dao.toRow((ArrayList)pat.getTemperature()),new Object[]{"date", "valeur"}));
 
     }
 

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class Glycemie implements Serializable {
+public class Glycemie implements Serializable, Mesurable {
     private String date;
     private Double valeur;
 
@@ -31,6 +31,9 @@ public class Glycemie implements Serializable {
         this.valeur = valeur;
     }
 
+    public double getValeurDouble() {
+        return (double) valeur;
+    }
 
     @Override
     public boolean equals(Object object) {

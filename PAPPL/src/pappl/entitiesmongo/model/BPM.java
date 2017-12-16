@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author oualidcheriaf
  */
 
-public class BPM implements Serializable {
+public class BPM implements Serializable, Mesurable {
 
     private String date;
     private int valeur;
@@ -26,6 +26,10 @@ public class BPM implements Serializable {
 
     public int getValeur() {
         return valeur;
+    }
+
+    public double getValeurDouble() {
+        return (double) valeur;
     }
 
     public void setValeur(int valeur) {

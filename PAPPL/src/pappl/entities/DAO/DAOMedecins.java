@@ -25,4 +25,5 @@ public class DAOMedecins extends DAOPostgres {
         this.getEm().getTransaction().commit();
     }
 
+
 }

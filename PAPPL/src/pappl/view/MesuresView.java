@@ -1,6 +1,11 @@
 package pappl.view;
 
+import pappl.entitiesmongo.DAO.DAOPatient;
+import pappl.entitiesmongo.model.Mesurable;
+import pappl.entitiesmongo.model.Patient;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,17 +49,14 @@ public class MesuresView extends MainView {
         Add.addActionListener(new BoutonListenerAdd());
         Alerte.addActionListener(new BoutonListenerAlertes());
 
-        tableau.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null}
-                },
-                new String[]{
-                        "Mesure", "Valeur"
-                }
-        ));
+        DefaultTableModel model = new DefaultTableModel(new String[]{
+                "Mesure", "Valeur"
+        }
+                , 0);
+        tableau.setModel(model);
+        //TODO : Supprimer ça
+        Patient pat = new DAOPatient().find(1);
+        DAOPatient.toRow((java.util.List<Mesurable>) pat.getTemperature(), model);
 
         tableau.getTableHeader().setFont(new Font("Calibri", Font.PLAIN, 20));
 

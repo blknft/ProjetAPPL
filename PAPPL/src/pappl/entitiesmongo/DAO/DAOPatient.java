@@ -4,7 +4,9 @@ import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import pappl.entitiesmongo.model.*;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DAOPatient extends DAOMongo {
     public DAOPatient() {
@@ -118,4 +120,11 @@ public class DAOPatient extends DAOMongo {
         doc = new Document().append("Nom", pat.getNom()).append("Prenom", pat.getPrenom()).append("Adresse", pat.getAdresse()).append("ID", pat.getId()).append("Temperature", temperature).append("Glycemie", glycemie).append("BPM", bpm).append("Tension", tension);
         return doc;
     }
+
+    public static void toRow(List<Mesurable> array, DefaultTableModel table) {
+        for (Mesurable t : array) {
+            table.addRow(new Object[]{t.getDate(), t.getValeurDouble()});
+        }
+    }
+
 }
